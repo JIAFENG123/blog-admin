@@ -64,6 +64,7 @@ import { nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { getTags, result } from '@/api/tags'
 import { addArticles, getArticle, updateArticles } from '@/api/article'
 import { getCategorys } from '@/api/category'
+import { CascaderOption } from 'element-plus/lib/components/cascader-panel/src/types'
 
 const props = defineProps<{ show: boolean; id: string }>()
 const emit = defineEmits(['close', 'refreshTable'])
@@ -200,7 +201,7 @@ interface Tree {
   name: string
   children?: Tree[]
 }
-const categories = ref<Tree[]>()
+const categories = ref<Tree[] | CascaderOption[]>()
 const getCategories = async () => {
   const res = await getCategorys()
   categories.value = res as unknown as Tree[]

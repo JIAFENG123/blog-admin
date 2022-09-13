@@ -28,7 +28,7 @@
           </section>
           <span v-else>{{ node.label }}</span>
           <span class="flex items-center">
-            <Plus class="w-4 h-4 cursor-pointer text-blue-500" @click="addCategory(data)" />
+            <Plus class="w-4 h-4 cursor-pointer text-blue-500" @click="addLevelCategory(data)" />
             <Minus class="w-4 h-4 cursor-pointer mx-4 text-red-500" @click="delNode(data)" />
             <EditPen class="w-4 h-4 cursor-pointer text-green-500" @click="editNode(data)" />
           </span>
@@ -93,12 +93,15 @@ const dialogVisible = ref(false)
 const addForm = reactive({
   name: ''
 })
-const addCategory = (_?: Tree) => {
+const addCategory = () => {
+  addForm.name = ''
+  dialogVisible.value = true
+}
+const addLevelCategory = (_?: Tree) => {
   addForm.name = ''
   if (_) currentNode.value = _
   dialogVisible.value = true
 }
-
 const rules = reactive<FormRules>({
   name: [{ required: true, message: 'Please input category name', trigger: 'blur' }]
 })

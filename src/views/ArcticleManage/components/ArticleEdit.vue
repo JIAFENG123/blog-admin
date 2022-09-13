@@ -201,10 +201,11 @@ interface Tree {
   name: string
   children?: Tree[]
 }
-const categories = ref<Tree[] | CascaderOption[]>()
+type A = Tree & CascaderOption
+const categories = ref<A[]>()
 const getCategories = async () => {
   const res = await getCategorys()
-  categories.value = res as unknown as Tree[]
+  categories.value = res as unknown as A[]
 }
 getCategories()
 

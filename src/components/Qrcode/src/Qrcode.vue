@@ -67,7 +67,7 @@ const initQrcode = async () => {
       unref(wrapRef) as HTMLCanvasElement,
       unref(renderText),
       options
-    )) as HTMLCanvasElement
+    )) as unknown as HTMLCanvasElement
     if (props.logo) {
       const url = await createLogoCode(canvasRef)
       emit('done', url)

@@ -1,9 +1,9 @@
 export type TableData = {
   id: string
-  // author: string
+  author?: string
   title: string
-  // content: string
-  // importance: number
+  content?: string
+  importance?: number
   createdAt: string
   views: number
 }

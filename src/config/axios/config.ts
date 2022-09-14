@@ -51,7 +51,7 @@ const config: {
     base: 'http://192.168.124.5:3000',
 
     // 打包开发环境接口前缀
-    dev: 'http://blog.xgg.link'
+    dev: 'https://blog.xgg.link'
   }
 }
 
